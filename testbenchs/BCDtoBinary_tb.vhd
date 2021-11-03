@@ -1,0 +1,59 @@
+----------------------------------------------------------------------------------
+-- Company: 
+-- Engineer: 
+-- 
+-- Create Date: 08.12.2020 16:52:06
+-- Design Name: 
+-- Module Name: BCDtoBinary_tb - test_bench
+-- Project Name: 
+-- Target Devices: 
+-- Tool Versions: 
+-- Description: 
+-- 
+-- Dependencies: 
+-- 
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+-- 
+----------------------------------------------------------------------------------
+
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+--use IEEE.NUMERIC_STD.ALL;
+
+-- Uncomment the following library declaration if instantiating
+-- any Xilinx leaf cells in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity BCDtoBinary_tb is
+end BCDtoBinary_tb;
+
+architecture test_bench of BCDtoBinary_tb is
+Signal startConvert_int : STD_LOGIC;
+Signal clk_int : STD_LOGIC;
+Signal Reg16BCDout_int : STD_LOGIC_VECTOR (15 downto 0);
+Signal BinaryOut_int : STD_LOGIC_VECTOR (13 downto 0);
+Signal DoneConverting_int : STD_LOGIC;
+begin
+    test_bench: entity work.BCDtoBinary port map(
+        startConvert_int,
+        clk_int,
+        Reg16BCDout_int,
+        BinaryOut_int,
+        DoneConverting_int
+    );
+    
+    process
+    begin
+        clk_int <= '0';
+        wait for 10ns;
+        clk_int <= '1';
+        wait for 10ns;
+    end process;
+end test_bench;
